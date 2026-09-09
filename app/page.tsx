@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Linkedin } from "lucide-react"; // Import Linkedin component
+import { LinkedinIcon } from "@/components/icons/brand";
 
 import { useState, useEffect, useRef } from "react";
 import { HeroSection } from "@/components/hero-section";
@@ -112,7 +112,7 @@ export default function CVPage() {
                   className="text-muted-foreground hover:text-foreground transition-colors"
                   aria-label="LinkedIn Profile"
                 >
-                  <Linkedin className="w-5 h-5" />
+                  <LinkedinIcon className="w-5 h-5" />
                 </a>
               </div>
             </div>

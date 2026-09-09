@@ -1,6 +1,4 @@
-import { Calendar } from "@/components/ui/calendar"
 import Image from "next/image";
-import { Mail } from "lucide-react";
 
 export function HeroSection() {
   return (
