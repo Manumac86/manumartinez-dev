@@ -4,6 +4,7 @@ import { Bento } from "@/components/home/bento"
 import { ProjectsList } from "@/components/home/projects-list"
 import { ExperiencePreview } from "@/components/home/experience-preview"
 import { BlogPreview } from "@/components/home/blog-preview"
+import { TalkSection } from "@/components/home/talk-section"
 
 export default function HomePage() {
   return (
@@ -15,6 +16,7 @@ export default function HomePage() {
         <ProjectsList />
         <ExperiencePreview />
         <BlogPreview />
+        <TalkSection />
       </main>
     </>
   )

@@ -1,33 +1,35 @@
-# manumartinez-dev-97
+# manumartinez.dev
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
+Personal site of Emmanuel Martinez — dark, bilingual (EN/ES), five pages: Home, Projects, Blog, Experience, Me.
 
-## Built with v0
+## Stack
 
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
+Next.js 16 (App Router) · React 19 · Tailwind CSS 4 · shadcn/ui v4 (`radix-ui`) · `motion` · TypeScript 7 · vitest + Testing Library. Package manager: **bun**.
 
-[Continue working on v0 →](https://v0.app/chat/projects/prj_OHPEqa3PbRQ5zmOSSEs7AyhH7VMG)
-
-## Getting Started
-
-First, run the development server:
+## Scripts
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+bun install        # deps
+bun run dev        # http://localhost:3000
+bun run build      # production build (runs type-check)
+bun run lint       # eslint
+bun run test       # vitest
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Variable | Purpose |
+|---|---|
+| `RESEND_API_KEY` | Resend API key. Without it, contact/newsletter forms log to the console in development and fail gracefully in production. |
+| `RESEND_AUDIENCE_ID` | Resend audience that stores newsletter subscribers. |
+| `CONTACT_TO` | Inbox for contact-form messages (default `me@manumartinez.dev`). |
+| `CONTACT_FROM` | Sender used by Resend (must be a verified domain). |
+| `REACTBITS_LICENSE_KEY` | React Bits Pro registry access for `bun x shadcn@latest add @reactbits-pro/...`. |
 
-## Learn More
+## Content
 
-To learn more, take a look at the following resources:
+All copy and data live in `content/` (typed, EN + ES). Language is persisted in a `lang` cookie and read by the root layout.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
+## Design
+
+The design handoff (reference HTML, tokens, data) lives locally in `docs/` and is not committed.
