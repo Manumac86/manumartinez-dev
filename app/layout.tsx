@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
+import { cookies } from "next/headers"
 import { Analytics } from "@vercel/analytics/next"
+import { LangProvider, LANG_COOKIE, parseLang } from "@/components/site/lang-provider"
 import { fontClassNames } from "./fonts"
 import "./globals.css"
 
@@ -20,11 +22,14 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const lang = parseLang((await cookies()).get(LANG_COOKIE)?.value)
   return (
-    <html lang="en" className={fontClassNames}>
+    <html lang={lang} className={fontClassNames}>
       <body>
-        <div className="relative flex min-h-screen flex-col overflow-x-clip">{children}</div>
+        <LangProvider initialLang={lang}>
+          <div className="relative flex min-h-screen flex-col overflow-x-clip">{children}</div>
+        </LangProvider>
         <Analytics />
       </body>
     </html>
