@@ -6,7 +6,7 @@ export function RisingWords({ text, replayKey, className }: { text: string; repl
   const reduce = useReducedMotion()
   return (
     <span key={replayKey} className={className}>
-      {text.split(" ").map((word, i, words) => (
+      {text.split(" ").map((word, i) => (
         <span key={`${word}-${i}`} data-word className="inline-block overflow-hidden pb-[0.08em] align-bottom">
           <motion.span
             className="inline-block"
