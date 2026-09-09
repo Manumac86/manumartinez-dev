@@ -1,0 +1,42 @@
+import { describe, expect, it } from "vitest"
+import { bio, certifications, copy, education, experienceFull, experienceShort, pick, posts, projects, stack } from "@/content"
+
+describe("content", () => {
+  it("copy has identical keys in en and es", () => {
+    expect(Object.keys(copy.es).sort()).toEqual(Object.keys(copy.en).sort())
+    expect(Object.keys(copy.es.nav).sort()).toEqual(Object.keys(copy.en.nav).sort())
+  })
+
+  it("projects and posts have unique slugs and both languages", () => {
+    const slugs = [...projects.map((p) => p.slug), ...posts.map((p) => p.slug)]
+    expect(new Set(slugs).size).toBe(slugs.length)
+    for (const p of projects) {
+      expect(p.tag.en).toBeTruthy()
+      expect(p.tag.es).toBeTruthy()
+      expect(p.desc.es).toBeTruthy()
+    }
+    for (const p of posts) {
+      expect(p.title.es).toBeTruthy()
+      expect(p.excerpt.es).toBeTruthy()
+    }
+  })
+
+  it("has 18 full roles, 10 short roles, 3 schools, 15 certifications, 12 stack items, 5 bio paragraphs", () => {
+    expect(experienceFull).toHaveLength(18)
+    expect(experienceShort).toHaveLength(10)
+    expect(education).toHaveLength(3)
+    expect(certifications).toHaveLength(15)
+    expect(stack).toHaveLength(12)
+    expect(bio.en).toHaveLength(5)
+    expect(bio.es).toHaveLength(5)
+  })
+
+  it("exactly one current role, and it is first", () => {
+    expect(experienceFull.filter((e) => e.current)).toHaveLength(1)
+    expect(experienceFull[0].current).toBe(true)
+  })
+
+  it("pick returns the requested language", () => {
+    expect(pick({ en: "a", es: "b" }, "es")).toBe("b")
+  })
+})
