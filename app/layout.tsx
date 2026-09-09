@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import { cookies } from "next/headers"
 import { Analytics } from "@vercel/analytics/next"
 import { LangProvider, LANG_COOKIE, parseLang } from "@/components/site/lang-provider"
+import { SiteHeader } from "@/components/site/site-header"
+import { SiteFooter } from "@/components/site/site-footer"
 import { fontClassNames } from "./fonts"
 import "./globals.css"
 
@@ -28,7 +30,11 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
     <html lang={lang} className={fontClassNames}>
       <body>
         <LangProvider initialLang={lang}>
-          <div className="relative flex min-h-screen flex-col overflow-x-clip">{children}</div>
+          <div className="relative flex min-h-screen flex-col overflow-x-clip">
+            <SiteHeader />
+            {children}
+            <SiteFooter />
+          </div>
         </LangProvider>
         <Analytics />
       </body>
