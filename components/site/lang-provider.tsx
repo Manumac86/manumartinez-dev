@@ -1,13 +1,8 @@
 "use client"
 
 import * as React from "react"
-import { copy, type Copy, type Lang, LANGS } from "@/content"
-
-export const LANG_COOKIE = "lang"
-
-export function parseLang(value?: string | null): Lang {
-  return (LANGS as readonly string[]).includes(value ?? "") ? (value as Lang) : "en"
-}
+import { copy, type Copy, type Lang } from "@/content"
+import { LANG_COOKIE } from "@/lib/lang"
 
 interface LangContextValue {
   lang: Lang

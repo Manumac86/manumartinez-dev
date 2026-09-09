@@ -1,0 +1,300 @@
+- generic [active] [ref=f2e1]:
+  - generic [ref=f2e2]:
+    - banner [ref=f2e3]:
+      - generic [ref=f2e4]:
+        - link "EM." [ref=f2e5] [cursor=pointer]:
+          - /url: /
+        - navigation [ref=f2e6]:
+          - link "Projects" [ref=f2e7] [cursor=pointer]:
+            - /url: /projects
+          - link "Blog" [ref=f2e8] [cursor=pointer]:
+            - /url: /blog
+          - link "Experience" [ref=f2e9] [cursor=pointer]:
+            - /url: /experience
+        - button "Switch to Español" [ref=f2e10]: ES
+        - link "Let's talk" [ref=f2e11] [cursor=pointer]:
+          - /url: /#talk
+    - main [ref=f2e12]:
+      - generic [ref=f2e13]:
+        - generic [ref=f2e14]: Available for technical co-founding · Madrid
+        - heading "I build AI-native products with founders who move fast." [level=1] [ref=f2e16]:
+          - generic [ref=f2e17]:
+            - generic [ref=f2e18]: I
+            - generic [ref=f2e20]: build
+            - generic [ref=f2e22]: AI-native
+            - generic [ref=f2e24]: products
+            - generic [ref=f2e26]: with
+            - generic [ref=f2e28]: founders
+            - generic [ref=f2e30]: who
+            - generic [ref=f2e32]: move
+            - generic [ref=f2e34]: fast.
+        - paragraph [ref=f2e36]: CEO & Co-Founder @ Collybrix. 15+ years shipping software — from frontend to VP of Engineering — now acting as temporary technical co-founder for startups going from idea to 100K users.
+        - generic [ref=f2e37]:
+          - link "Book a 30-min call" [ref=f2e38] [cursor=pointer]:
+            - /url: https://cal.com/emmanuel-martinez/30min
+          - link "See projects" [ref=f2e39] [cursor=pointer]:
+            - /url: /projects
+      - generic [ref=f2e40]:
+        - generic [ref=f2e41]:
+          - generic [ref=f2e42]:
+            - generic [ref=f2e44]: What is Collybrix
+            - heading "We fast-track startup tech — and rewrite the standards." [level=2] [ref=f2e45]
+            - paragraph [ref=f2e46]: A technical accelerator for startups across Europe and the Americas. Our senior team — backend, frontend, data & AI, UX/UI, DevOps — takes founders from concept to a robust, scalable product (Prototype → MVP → v1.0) in a few months.
+            - link "collybrix.com" [ref=f2e47] [cursor=pointer]:
+              - /url: https://collybrix.com
+          - link "Emmanuel Martinez Emmanuel Martinez CEO & Co-Founder @ Collybrix Madrid, ES · UTC+1 → Me" [ref=f2e51] [cursor=pointer]:
+            - /url: /me
+            - img "Emmanuel Martinez" [ref=f2e52]
+            - generic [ref=f2e55]:
+              - generic [ref=f2e56]: Emmanuel Martinez
+              - generic [ref=f2e57]: CEO & Co-Founder @ Collybrix
+              - generic [ref=f2e58]: Madrid, ES · UTC+1 → Me
+        - generic [ref=f2e59]:
+          - generic [ref=f2e60]:
+            - generic [ref=f2e61]: 15+
+            - generic [ref=f2e62]: years shipping software
+          - generic [ref=f2e63]:
+            - generic [ref=f2e64]: "2"
+            - generic [ref=f2e65]: companies founded
+          - generic [ref=f2e66]:
+            - generic [ref=f2e67]: 100K
+            - generic [ref=f2e68]: users — the target for every startup we join
+        - generic [ref=f2e69]:
+          - generic [ref=f2e70]: Stack
+          - generic [ref=f2e71]: Next.js
+          - generic [ref=f2e72]: React
+          - generic [ref=f2e73]: Node.js
+          - generic [ref=f2e74]: Python
+          - generic [ref=f2e75]: Gen AI
+          - generic [ref=f2e76]: Multi-agent systems
+          - generic [ref=f2e77]: MongoDB
+          - generic [ref=f2e78]: Milvus
+          - generic [ref=f2e79]: AWS
+          - generic [ref=f2e80]: Kubernetes
+          - generic [ref=f2e81]: Design systems
+          - generic [ref=f2e82]: PRDs
+      - generic [ref=f2e83]:
+        - generic [ref=f2e84]:
+          - heading "Products I'm building" [level=2] [ref=f2e85]
+          - link "All projects" [ref=f2e86] [cursor=pointer]:
+            - /url: /projects
+        - generic [ref=f2e89]:
+          - 'link "01 Fintio AI-powered financial tracker & advisor Financial tracking and advisory platform for individuals and SMBs: automated expense categorization, cash-flow forecasting and actionable recommendations, powered by AI." [ref=f2e90] [cursor=pointer]':
+            - /url: /projects#fintio
+            - generic [ref=f2e91]: "01"
+            - generic [ref=f2e92]:
+              - generic [ref=f2e93]: Fintio
+              - generic [ref=f2e94]: AI-powered financial tracker & advisor
+            - paragraph [ref=f2e95]: "Financial tracking and advisory platform for individuals and SMBs: automated expense categorization, cash-flow forecasting and actionable recommendations, powered by AI."
+          - link "02 Milano Enterprise CRM & commercial management A single source of truth for the commercial lifecycle of mid-sized B2B companies — from lead to invoice to collection. Real-time pipeline, automated follow-ups, integrated invoicing." [ref=f2e99] [cursor=pointer]:
+            - /url: /projects#milano
+            - generic [ref=f2e100]: "02"
+            - generic [ref=f2e101]:
+              - generic [ref=f2e102]: Milano
+              - generic [ref=f2e103]: Enterprise CRM & commercial management
+            - paragraph [ref=f2e104]: A single source of truth for the commercial lifecycle of mid-sized B2B companies — from lead to invoice to collection. Real-time pipeline, automated follow-ups, integrated invoicing.
+          - 'link "03 Parrot Documentation & project management platform Collybrix''s internal knowledge system: PRDs, roadmaps, sprint plans, analysis and legal templates, version-controlled and shared with clients." [ref=f2e108] [cursor=pointer]':
+            - /url: /projects#parrot
+            - generic [ref=f2e109]: "03"
+            - generic [ref=f2e110]:
+              - generic [ref=f2e111]: Parrot
+              - generic [ref=f2e112]: Documentation & project management platform
+            - paragraph [ref=f2e113]: "Collybrix's internal knowledge system: PRDs, roadmaps, sprint plans, analysis and legal templates, version-controlled and shared with clients."
+          - 'link "04 FCP Contest App Contest platform for Fundación Cultural Patagonia End-to-end contest management for dance, music and writing competitions: audiovisual submissions, scoring system and public voting." [ref=f2e117] [cursor=pointer]':
+            - /url: /projects#fcp
+            - generic [ref=f2e118]: "04"
+            - generic [ref=f2e119]:
+              - generic [ref=f2e120]: FCP Contest App
+              - generic [ref=f2e121]: Contest platform for Fundación Cultural Patagonia
+            - paragraph [ref=f2e122]: "End-to-end contest management for dance, music and writing competitions: audiovisual submissions, scoring system and public voting."
+      - generic [ref=f2e126]:
+        - 'heading "Fifteen years, three continents, one obsession: shipping." [level=2] [ref=f2e127]'
+        - generic [ref=f2e128]:
+          - generic [ref=f2e129]:
+            - generic [ref=f2e130]:
+              - generic [ref=f2e131]: 2025 — Now
+              - generic [ref=f2e132]:
+                - generic [ref=f2e133]: CEO & Co-Founder
+                - generic [ref=f2e134]: Collybrix
+              - generic [ref=f2e135]: Madrid
+            - generic [ref=f2e136]:
+              - generic [ref=f2e137]: 2024 — 2025
+              - generic [ref=f2e138]:
+                - generic [ref=f2e139]: VP of Engineering
+                - generic [ref=f2e140]: AKAIO by Kyra Group
+              - generic [ref=f2e141]: Madrid
+            - generic [ref=f2e142]:
+              - generic [ref=f2e143]: 2023 — 2024
+              - generic [ref=f2e144]:
+                - generic [ref=f2e145]: Senior Fullstack Developer
+                - generic [ref=f2e146]: Between Technology
+              - generic [ref=f2e147]: Spain
+            - generic [ref=f2e148]:
+              - generic [ref=f2e149]: 2023 — 2023
+              - generic [ref=f2e150]:
+                - generic [ref=f2e151]: Sr Fullstack Engineer
+                - generic [ref=f2e152]: Sistemas Genómicos · SYNLAB
+              - generic [ref=f2e153]: Valencia
+            - generic [ref=f2e154]:
+              - generic [ref=f2e155]: 2021 — 2023
+              - generic [ref=f2e156]:
+                - generic [ref=f2e157]: Sr. Frontend Engineer
+                - generic [ref=f2e158]: EvoSecurity
+              - generic [ref=f2e159]: Madrid
+            - generic [ref=f2e160]:
+              - generic [ref=f2e161]: 2022 — 2023
+              - generic [ref=f2e162]:
+                - generic [ref=f2e163]: Auth0 Engineer
+                - generic [ref=f2e164]: iDocket
+              - generic [ref=f2e165]: Texas, US
+            - generic [ref=f2e166]:
+              - generic [ref=f2e167]: 2019 — 2022
+              - generic [ref=f2e168]:
+                - generic [ref=f2e169]: Frontend Engineer
+                - generic [ref=f2e170]: Social Native
+              - generic [ref=f2e171]: Córdoba, AR
+            - link "Full timeline" [ref=f2e172] [cursor=pointer]:
+              - /url: /experience
+          - generic [ref=f2e175]:
+            - generic [ref=f2e176]:
+              - generic [ref=f2e177]: 2004 – 2014
+              - generic [ref=f2e178]: Universidad Nacional de Río Cuarto
+              - generic [ref=f2e179]: Telecommunications Engineering
+            - generic [ref=f2e180]:
+              - generic [ref=f2e181]: 2013 – 2015
+              - generic [ref=f2e182]: Colegio Universitario IES
+              - generic [ref=f2e183]: Multimedia Design & Business
+            - generic [ref=f2e184]:
+              - generic [ref=f2e185]: 2019 – 2024
+              - generic [ref=f2e186]: Platzi
+              - generic [ref=f2e187]: 13 certifications · AI, Architecture, Backend
+      - generic [ref=f2e188]:
+        - generic [ref=f2e189]:
+          - heading "Notes on AI, startups and engineering leadership" [level=2] [ref=f2e190]
+          - link "All posts" [ref=f2e191] [cursor=pointer]:
+            - /url: /blog
+        - generic [ref=f2e194]:
+          - 'link "AI Engineering 9 min read Multi-agent systems in production: what actually breaks After shipping AKAIO v1.0 — Gen AI, agents and semantic search — the failures were never the model. They were state, cost and trust. 2026-08-21" [ref=f2e195] [cursor=pointer]':
+            - /url: /blog#multi-agent-production
+            - generic [ref=f2e196]:
+              - generic [ref=f2e197]: AI Engineering
+              - generic [ref=f2e198]: 9 min read
+            - 'heading "Multi-agent systems in production: what actually breaks" [level=3] [ref=f2e199]'
+            - paragraph [ref=f2e200]: After shipping AKAIO v1.0 — Gen AI, agents and semantic search — the failures were never the model. They were state, cost and trust.
+            - generic [ref=f2e201]: 2026-08-21
+          - 'link "Startups 7 min read From idea to 100K users: the technical co-founder playbook The five decisions that matter in the first ninety days, and the twenty that don''t. 2026-07-03" [ref=f2e202] [cursor=pointer]':
+            - /url: /blog#technical-cofounder-playbook
+            - generic [ref=f2e203]:
+              - generic [ref=f2e204]: Startups
+              - generic [ref=f2e205]: 7 min read
+            - 'heading "From idea to 100K users: the technical co-founder playbook" [level=3] [ref=f2e206]'
+            - paragraph [ref=f2e207]: The five decisions that matter in the first ninety days, and the twenty that don't.
+            - generic [ref=f2e208]: 2026-07-03
+          - 'link "Product 6 min read PRDs for AI products: writing specs when the model is the feature Acceptance criteria don''t survive non-determinism. Here''s the template we use at Collybrix instead. 2026-05-18" [ref=f2e209] [cursor=pointer]':
+            - /url: /blog#prds-for-ai-products
+            - generic [ref=f2e210]:
+              - generic [ref=f2e211]: Product
+              - generic [ref=f2e212]: 6 min read
+            - 'heading "PRDs for AI products: writing specs when the model is the feature" [level=3] [ref=f2e213]'
+            - paragraph [ref=f2e214]: Acceptance criteria don't survive non-determinism. Here's the template we use at Collybrix instead.
+            - generic [ref=f2e215]: 2026-05-18
+      - generic [ref=f2e217]:
+        - generic [ref=f2e218]:
+          - generic [ref=f2e219]: Let's talk
+          - heading "Have an idea that needs a technical co-founder?" [level=2] [ref=f2e220]
+          - paragraph [ref=f2e221]: Tell me what you're building. I reply within 48 hours.
+          - generic [ref=f2e222]:
+            - link "me@manumartinez.dev" [ref=f2e223] [cursor=pointer]:
+              - /url: mailto:me@manumartinez.dev
+            - link "cal.com" [ref=f2e224] [cursor=pointer]:
+              - /url: https://cal.com/emmanuel-martinez/30min
+            - link "LinkedIn" [ref=f2e225] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/emmartinez-profile-ceo/
+          - generic [ref=f2e226]:
+            - generic [ref=f2e227]: Newsletter — One useful idea every two weeks.
+            - generic [ref=f2e229]:
+              - textbox "Email" [ref=f2e230]:
+                - /placeholder: you@company.com
+              - button "Subscribe" [ref=f2e231]
+        - generic [ref=f2e232]:
+          - textbox "Name" [ref=f2e233]
+          - textbox "Email" [ref=f2e234]
+          - textbox "What are you building?" [ref=f2e235]
+          - button "Send message" [ref=f2e236]
+    - contentinfo [ref=f2e237]:
+      - generic [ref=f2e238]:
+        - generic [ref=f2e239]:
+          - generic [ref=f2e240]:
+            - link "MANUMARTINEZ." [ref=f2e241] [cursor=pointer]:
+              - /url: /
+            - paragraph [ref=f2e242]: CEO & Co-Founder @ Collybrix. 15+ years shipping software — from frontend to VP of Engineering — now acting as temporary technical co-founder for startups going from idea to 100K users.
+            - generic [ref=f2e243]:
+              - link "manumartinez.dev" [ref=f2e244] [cursor=pointer]:
+                - /url: https://manumartinez.dev
+              - link "LinkedIn" [ref=f2e248] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/emmartinez-profile-ceo/
+              - link "X" [ref=f2e251] [cursor=pointer]:
+                - /url: https://x.com/emmartinez86
+              - link "Email" [ref=f2e254] [cursor=pointer]:
+                - /url: mailto:me@manumartinez.dev
+              - link "Meet with me" [ref=f2e258] [cursor=pointer]:
+                - /url: https://cal.com/emmanuel-martinez/30min
+              - link "GitHub" [ref=f2e261] [cursor=pointer]:
+                - /url: https://github.com/Manumac86
+              - link "GitLab" [ref=f2e264] [cursor=pointer]:
+                - /url: https://gitlab.com/emartinez-collybrix
+              - link "Collybrix" [ref=f2e267] [cursor=pointer]:
+                - /url: https://collybrix.com
+          - generic [ref=f2e273]:
+            - generic [ref=f2e274]:
+              - heading "Projects" [level=3] [ref=f2e275]
+              - list [ref=f2e276]:
+                - listitem [ref=f2e277]:
+                  - link "All projects" [ref=f2e278] [cursor=pointer]:
+                    - /url: /projects
+                - listitem [ref=f2e279]:
+                  - link "Fintio" [ref=f2e280] [cursor=pointer]:
+                    - /url: /projects#fintio
+                - listitem [ref=f2e281]:
+                  - link "Milano" [ref=f2e282] [cursor=pointer]:
+                    - /url: /projects#milano
+                - listitem [ref=f2e283]:
+                  - link "Parrot" [ref=f2e284] [cursor=pointer]:
+                    - /url: /projects#parrot
+            - generic [ref=f2e285]:
+              - heading "Blog" [level=3] [ref=f2e286]
+              - list [ref=f2e287]:
+                - listitem [ref=f2e288]:
+                  - link "All posts" [ref=f2e289] [cursor=pointer]:
+                    - /url: /blog
+                - listitem [ref=f2e290]:
+                  - 'link "Multi-agent systems in production: what actually breaks" [ref=f2e291] [cursor=pointer]':
+                    - /url: /blog#multi-agent-production
+                - listitem [ref=f2e292]:
+                  - 'link "From idea to 100K users: the technical co-founder playbook" [ref=f2e293] [cursor=pointer]':
+                    - /url: /blog#technical-cofounder-playbook
+                - listitem [ref=f2e294]:
+                  - 'link "PRDs for AI products: writing specs when the model is the feature" [ref=f2e295] [cursor=pointer]':
+                    - /url: /blog#prds-for-ai-products
+            - generic [ref=f2e296]:
+              - heading "About me" [level=3] [ref=f2e297]
+              - list [ref=f2e298]:
+                - listitem [ref=f2e299]:
+                  - link "Experience" [ref=f2e300] [cursor=pointer]:
+                    - /url: /experience
+                - listitem [ref=f2e301]:
+                  - link "Projects" [ref=f2e302] [cursor=pointer]:
+                    - /url: /projects
+                - listitem [ref=f2e303]:
+                  - link "Blog" [ref=f2e304] [cursor=pointer]:
+                    - /url: /blog
+                - listitem [ref=f2e305]:
+                  - link "Me" [ref=f2e306] [cursor=pointer]:
+                    - /url: /me
+        - img [ref=f2e308]:
+          - generic [ref=f2e309]: MANUMARTINEZ
+        - generic [ref=f2e310]:
+          - generic [ref=f2e311]: © 2026 Emmanuel Martinez. All rights reserved.
+          - generic [ref=f2e312]: Madrid, Spain
+  - button "Open Next.js Dev Tools" [ref=f2e318] [cursor=pointer]
+  - alert [ref=f2e322]

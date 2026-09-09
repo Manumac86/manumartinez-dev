@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { describe, expect, it } from "vitest"
-import { LangProvider, parseLang, useLang } from "@/components/site/lang-provider"
+import { LangProvider, useLang } from "@/components/site/lang-provider"
+import { parseLang } from "@/lib/lang"
 
 function Probe() {
   const { lang, t, toggle } = useLang()

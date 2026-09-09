@@ -1,0 +1,40 @@
+- generic [ref=e1]:
+  - generic [active]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - navigation [ref=e7]:
+          - button [disabled] [ref=e8]:
+            - img "previous" [ref=e9]
+          - generic [ref=e11]:
+            - generic [ref=e12]: 1/
+            - generic [ref=e13]: "1"
+          - button [disabled] [ref=e14]:
+            - img "next" [ref=e15]
+        - generic [ref=e18]:
+          - generic "Latest available version is detected (16.3.4)." [ref=e21]: Next.js 16.3.4
+          - generic [ref=e22]: Turbopack
+      - dialog "Runtime Error" [ref=e24]:
+        - generic [ref=e29]:
+          - generic [ref=e30]:
+            - generic [ref=e31]:
+              - generic [ref=e32]: Runtime Error
+              - generic [ref=e33]: Server
+            - generic [ref=e34]:
+              - button "Copy Error Info" [ref=e35] [cursor=pointer]
+              - button "No related documentation found" [disabled] [ref=e38]
+              - button "Attach Node.js inspector" [ref=e41] [cursor=pointer]
+          - generic [ref=e50]: Attempted to call parseLang() from the server but parseLang is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    - generic [ref=e57] [cursor=pointer]:
+      - button "Open Next.js Dev Tools" [ref=e58]
+      - generic [ref=e62]:
+        - button "Open issues overlay" [ref=e63]:
+          - generic [ref=e64]:
+            - generic [aria-hidden] [ref=e65]: "0"
+            - generic [ref=e66]: "1"
+          - generic [ref=e67]: Issue
+        - button "Collapse issues badge" [ref=e68]
+  - generic [ref=e72]:
+    - heading "This page couldn’t load" [level=1] [ref=e75]
+    - paragraph [ref=e76]: A server error occurred. Reload to try again.
+    - button "Reload" [ref=e79] [cursor=pointer]
+  - paragraph [ref=e80]: ERROR 1926480460
