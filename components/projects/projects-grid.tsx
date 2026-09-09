@@ -28,8 +28,8 @@ export function ProjectsGrid({ featuredFirst = true }: { featuredFirst?: boolean
               </div>
               <h2
                 className={cn(
-                  "font-display leading-[0.98] font-medium tracking-[-0.04em]",
                   big ? "text-[clamp(40px,5vw,72px)]" : "text-4xl",
+                  "font-display leading-[0.98] font-medium tracking-[-0.04em]",
                 )}
               >
                 {p.name}

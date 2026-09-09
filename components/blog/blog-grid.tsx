@@ -77,8 +77,8 @@ export function BlogGrid({ featuredFirst = true }: { featuredFirst?: boolean }) 
                 </div>
                 <h2
                   className={cn(
-                    "font-display leading-[1.02] font-medium tracking-[-0.035em] text-balance",
                     big ? "text-[clamp(32px,4.4vw,60px)]" : "text-[26px]",
+                    "font-display leading-[1.02] font-medium tracking-[-0.035em] text-balance",
                   )}
                 >
                   {p.title[lang]}

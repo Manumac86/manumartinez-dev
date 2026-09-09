@@ -30,3 +30,7 @@ next-env.d.ts
 
 # design handoff (local only)
 /docs
+
+# playwright artifacts
+.playwright-mcp/
+*.png.tmp

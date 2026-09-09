@@ -16,9 +16,8 @@ export function RisingWords({ text, replayKey, className }: { text: string; repl
           >
             {word}
           </motion.span>
-          {i < words.length - 1 ? " " : null}
         </span>
-      ))}
+      )).flatMap((el, i, arr) => (i < arr.length - 1 ? [el, " "] : [el]))}
     </span>
   )
 }
