@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { useLang } from "@/components/site/lang-provider"
@@ -64,11 +65,16 @@ export function BlogGrid({ posts: byLang, featuredFirst = true }: { posts: Posts
             >
               <div
                 className={cn(
-                  "flex items-center justify-center rounded-lg border border-border bg-stripes font-mono text-xs text-muted-2",
+                  "relative flex items-center justify-center overflow-hidden rounded-lg border border-border font-mono text-xs text-muted-2",
+                  p.cover ? "bg-card-2" : "bg-stripes",
                   big ? "order-2 min-h-[300px]" : "min-h-[160px]",
                 )}
               >
-                cover · {p.slug}
+                {p.cover ? (
+                  <Image src={p.cover} alt="" fill sizes={big ? "(min-width: 768px) 50vw, 100vw" : "(min-width: 1024px) 33vw, 100vw"} className="object-cover" />
+                ) : (
+                  <>cover · {p.slug}</>
+                )}
               </div>
               <div className="flex min-w-0 flex-col gap-3.5">
                 <div className="flex justify-between font-mono text-xs text-muted-2">
