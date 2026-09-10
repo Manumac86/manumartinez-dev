@@ -1,6 +1,6 @@
 ---
 title: Fundar una empresa en un país que no es el tuyo
-excerpt: "Firmé la escritura de la sociedad un martes por la mañana, en una notaría de Madrid, con dos personas que conocía hacía poco más de un año.\r\nMe acuerdo de estar sentado ahí, escuchando al notario leer artículos en un castellano que es el mío pero no del todo, pensando dos cosas al mismo tiempo."
+excerpt: ...
 tag: Emprender
 date: '2026-09-10'
 template: article
