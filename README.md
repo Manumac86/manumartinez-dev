@@ -25,10 +25,24 @@ bun run test       # vitest
 | `CONTACT_TO` | Inbox for contact-form messages (default `me@manumartinez.dev`). |
 | `CONTACT_FROM` | Sender used by Resend (must be a verified domain). |
 | `REACTBITS_LICENSE_KEY` | React Bits Pro registry access for `bun x shadcn@latest add @reactbits-pro/...`. |
+| `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`, `CLERK_SECRET_KEY` | Clerk (Vercel Marketplace). Only `/admin` and `/sign-in` touch Clerk. |
+| `CMS_EDITORS` | Comma-separated emails allowed to use the CMS (or give the Clerk user `publicMetadata.role = "editor"`). |
+| `GITHUB_TOKEN` | Fine-grained PAT with **Contents: read/write** on this repo. The CMS commits posts through the GitHub API. |
+| `GITHUB_REPO`, `GITHUB_BRANCH` | Defaults `Manumac86/manumartinez-dev` and `main`. |
+| `BLOB_READ_WRITE_TOKEN` | Vercel Blob store for post covers (auto-provisioned). |
+| `TRANSLATION_MODEL` | AI Gateway model id for auto-translation (default `anthropic/claude-sonnet-5`). Gateway auth uses Vercel OIDC. |
 
 ## Content
 
 All copy and data live in `content/` (typed, EN + ES). Language is persisted in a `lang` cookie and read by the root layout.
+
+### Blog
+
+Posts are Markdown files in `content/posts/<slug>/es.md` and `en.md` with frontmatter (`title`, `excerpt`, `tag`, `date`, `template`, `draft`, `cover`, `source`, `translatedFrom`, `sourceHash`, plus `client`/`role`/`stack` for case studies). Templates: `article`, `note`, `case-study`. Drafts render outside production and on preview deployments.
+
+### CMS
+
+`/admin` (Clerk-gated, editors only) edits posts in the browser: Markdown editor with preview, cover upload to Blob, automatic translation to the other language through the AI Gateway, and an atomic commit to `main` via the GitHub API. Vercel redeploys the site from that commit.
 
 ## Design
 
