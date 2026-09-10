@@ -8,7 +8,8 @@
     "lint": "eslint .",
     "start": "next start",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "email": "email dev --dir emails --port 3333"
   },
   "dependencies": {
     "@clerk/nextjs": "^7.9.2",
@@ -34,6 +35,7 @@
     "react": "19.2.8",
     "react-day-picker": "10.0.1",
     "react-dom": "19.2.8",
+    "react-email": "^6.9.5",
     "react-hook-form": "^7.60.0",
     "react-resizable-panels": "^4.12.4",
     "reading-time": "^1.5.0",
