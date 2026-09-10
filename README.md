@@ -23,7 +23,7 @@ bun run test       # vitest
 | `RESEND_API_KEY` | Resend API key. Without it, contact/newsletter forms log to the console in development and fail gracefully in production. |
 | `RESEND_AUDIENCE_ID` | Resend audience that stores newsletter subscribers. |
 | `CONTACT_TO` | Inbox for contact-form messages (default `me@manumartinez.dev`). |
-| `CONTACT_FROM` | Sender used by Resend (must be a verified domain). |
+| `CONTACT_FROM` | Sender used by Resend. Defaults to `hello@` + `RESEND_EMAIL_DOMAIN` (provisioned by the Marketplace; the domain must be verified in Resend). |
 | `REACTBITS_LICENSE_KEY` | React Bits Pro registry access for `bun x shadcn@latest add @reactbits-pro/...`. |
 | `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`, `CLERK_SECRET_KEY` | Clerk (Vercel Marketplace). Only `/admin` and `/sign-in` touch Clerk. |
 | `CMS_EDITORS` | Comma-separated emails allowed to use the CMS (or give the Clerk user `publicMetadata.role = "editor"`). |

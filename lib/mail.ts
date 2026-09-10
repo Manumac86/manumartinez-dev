@@ -3,7 +3,9 @@ import type { ContactInput } from "@/lib/forms"
 
 const RESEND = "https://api.resend.com"
 const TO = process.env.CONTACT_TO ?? "me@manumartinez.dev"
-const FROM = process.env.CONTACT_FROM ?? "manumartinez.dev <hello@manumartinez.dev>"
+// RESEND_EMAIL_DOMAIN is provisioned by the Vercel Marketplace integration.
+const DOMAIN = process.env.RESEND_EMAIL_DOMAIN ?? "manumartinez.dev"
+const FROM = process.env.CONTACT_FROM ?? `manumartinez.dev <hello@${DOMAIN}>`
 
 function apiKey(): string | null {
   return process.env.RESEND_API_KEY ?? null
