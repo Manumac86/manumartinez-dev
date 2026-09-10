@@ -45,7 +45,7 @@ export function BlogGrid({ featuredFirst = true }: { featuredFirst?: boolean }) 
           ))}
         </ToggleGroup>
       </div>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-3.5">
+      <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-3">
         {list.map((p, i) => {
           const big = featuredFirst && i === 0 && tag === ALL
           return (

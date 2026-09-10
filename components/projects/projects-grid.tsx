@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 export function ProjectsGrid({ featuredFirst = true }: { featuredFirst?: boolean }) {
   const { lang, t } = useLang()
   return (
-    <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-3.5">
+    <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-3">
       {projects.map((p, i) => {
         const big = featuredFirst && i === 0
         return (
@@ -18,7 +18,7 @@ export function ProjectsGrid({ featuredFirst = true }: { featuredFirst?: boolean
             data-featured={big || undefined}
             className={cn(
               "grid min-w-0 scroll-mt-24 gap-7 rounded-card border border-border p-7 transition-all duration-250 hover:-translate-y-[3px] hover:border-violet-deep",
-              big ? "col-span-full bg-gradient-featured md:grid-cols-[minmax(0,1fr)_320px]" : "bg-card",
+              big ? "col-span-full bg-gradient-featured md:grid-cols-[minmax(0,1fr)_minmax(320px,38%)]" : "bg-card",
             )}
           >
             <div className="flex min-w-0 flex-col gap-3.5">
