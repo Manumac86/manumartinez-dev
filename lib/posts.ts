@@ -6,8 +6,9 @@ import { z } from "zod"
 import { LANGS, type Lang } from "@/content/types"
 import { extractHeadings, renderMarkdown, type Heading } from "@/lib/markdown"
 
-export const POST_TEMPLATES = ["article", "note", "case-study"] as const
-export type PostTemplate = (typeof POST_TEMPLATES)[number]
+import { POST_TEMPLATES, type PostTemplate } from "@/lib/post-form"
+
+export { POST_TEMPLATES, type PostTemplate }
 
 const frontmatterSchema = z.object({
   title: z.string().min(1),

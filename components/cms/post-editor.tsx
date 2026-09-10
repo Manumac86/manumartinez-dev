@@ -16,8 +16,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Switch } from "@/components/ui/switch"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Textarea } from "@/components/ui/textarea"
-import { slugify, type PostForm } from "@/lib/cms"
-import { POST_TEMPLATES } from "@/lib/posts"
+import { POST_TEMPLATES, slugify, type PostForm } from "@/lib/post-form"
 
 const field = "h-auto rounded-sm border-border-strong bg-background/60 px-3.5 py-2.5 text-sm shadow-none focus-visible:border-green focus-visible:ring-0 md:text-sm"
 

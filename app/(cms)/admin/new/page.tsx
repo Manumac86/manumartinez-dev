@@ -1,5 +1,5 @@
 import { PostEditor } from "@/components/cms/post-editor"
-import type { PostForm } from "@/lib/cms"
+import type { PostForm } from "@/lib/post-form"
 import { getAllPosts, getPostTags } from "@/lib/posts"
 
 export default async function NewPostPage() {

@@ -1,7 +1,8 @@
 "use server"
 
 import { put } from "@vercel/blob"
-import { buildPostFiles, postFormSchema } from "@/lib/cms"
+import { buildPostFiles } from "@/lib/cms"
+import { postFormSchema } from "@/lib/post-form"
 import { requireEditor } from "@/lib/cms-session"
 import { commitFiles, postPaths, readRepoFile } from "@/lib/github"
 import { renderMarkdown } from "@/lib/markdown"
