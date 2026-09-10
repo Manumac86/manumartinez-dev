@@ -66,6 +66,16 @@ export async function readRepoFile(path: string, cfg: GithubConfig = envConfig()
   }
 }
 
+/** Lists directory names inside a repo path on the branch. */
+export async function listRepoDirs(dirPath: string, cfg: GithubConfig = envConfig()): Promise<string[]> {
+  const entries = await gh<{ name: string; type: string }[]>(
+    cfg,
+    "GET",
+    `/repos/${cfg.owner}/${cfg.repo}/contents/${encodeURI(dirPath)}?ref=${encodeURIComponent(cfg.branch)}`,
+  )
+  return entries.filter((e) => e.type === "dir").map((e) => e.name).sort()
+}
+
 /** Commits all changes atomically on top of the branch head. */
 export async function commitFiles(message: string, changes: FileChange[], cfg: GithubConfig = envConfig()): Promise<CommitResult> {
   if (changes.length === 0) throw new Error("Nothing to commit")

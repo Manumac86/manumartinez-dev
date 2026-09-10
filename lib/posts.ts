@@ -63,18 +63,12 @@ interface LoadOptions {
   includeDrafts?: boolean
 }
 
-async function readPostFile(dir: string, slug: string, lang: Lang): Promise<{ meta: PostMeta; body: string } | null> {
-  const file = path.join(dir, slug, `${lang}.md`)
-  let raw: string
-  try {
-    raw = await readFile(/* turbopackIgnore: true */ file, "utf8")
-  } catch {
-    return null
-  }
+/** Parses a markdown file (frontmatter + body) into post metadata. `label` is only used in error messages. */
+export function parsePostMarkdown(slug: string, lang: Lang, raw: string, label = `${slug}/${lang}.md`): { meta: PostMeta; body: string } {
   const { data, content } = matter(raw)
   const parsed = frontmatterSchema.safeParse(data)
   if (!parsed.success) {
-    throw new Error(`Invalid frontmatter in ${path.relative(process.cwd(), file)}: ${parsed.error.issues.map((i) => `${i.path.join(".")} ${i.message}`).join("; ")}`)
+    throw new Error(`Invalid frontmatter in ${label}: ${parsed.error.issues.map((i) => `${i.path.join(".")} ${i.message}`).join("; ")}`)
   }
   const fm = parsed.data
   const meta: PostMeta = {
@@ -95,6 +89,17 @@ async function readPostFile(dir: string, slug: string, lang: Lang): Promise<{ me
     stack: fm.stack,
   }
   return { meta, body: content }
+}
+
+async function readPostFile(dir: string, slug: string, lang: Lang): Promise<{ meta: PostMeta; body: string } | null> {
+  const file = path.join(dir, slug, `${lang}.md`)
+  let raw: string
+  try {
+    raw = await readFile(/* turbopackIgnore: true */ file, "utf8")
+  } catch {
+    return null
+  }
+  return parsePostMarkdown(slug, lang, raw, path.relative(process.cwd(), file))
 }
 
 export async function getPostSlugs(options: LoadOptions = {}): Promise<string[]> {

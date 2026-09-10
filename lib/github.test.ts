@@ -57,3 +57,12 @@ describe("github client", () => {
     expect(postPaths("hola")).toEqual({ es: "content/posts/hola/es.md", en: "content/posts/hola/en.md" })
   })
 })
+
+describe("listRepoDirs", () => {
+  it("returns only directories, sorted", async () => {
+    const fetchImpl: typeof fetch = async () =>
+      new Response(JSON.stringify([{ name: "zeta", type: "dir" }, { name: "README.md", type: "file" }, { name: "alpha", type: "dir" }]), { status: 200 })
+    const { listRepoDirs } = await import("@/lib/github")
+    expect(await listRepoDirs("content/posts", { token: "t", owner: "o", repo: "r", branch: "main", fetchImpl })).toEqual(["alpha", "zeta"])
+  })
+})

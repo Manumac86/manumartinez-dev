@@ -3,8 +3,8 @@ import { readFile } from "node:fs/promises"
 import path from "node:path"
 import matter from "gray-matter"
 import type { Lang } from "@/content/types"
-import { postPaths, readRepoFile } from "@/lib/github"
-import { DEFAULT_POSTS_DIR } from "@/lib/posts"
+import { listRepoDirs, postPaths, readRepoFile } from "@/lib/github"
+import { DEFAULT_POSTS_DIR, getAllPostsByLang, otherLang, parsePostMarkdown, type PostsByLang } from "@/lib/posts"
 
 export interface PostSource {
   sourceLang: Lang
@@ -37,4 +37,31 @@ export async function loadPostSource(slug: string): Promise<PostSource | null> {
   const source = sourceLang === "es" ? es! : en!
   const translation = sourceLang === "es" ? en : es
   return { sourceLang, source, translation }
+}
+
+/**
+ * Posts as they exist in the repo right now (drafts included). Falls back to the deployed
+ * filesystem when GitHub is not configured. Mirrors getAllPostsByLang's language fallback.
+ */
+export async function listPostsForAdmin(): Promise<PostsByLang> {
+  if (!usesGithub()) return getAllPostsByLang({ includeDrafts: true })
+  const slugs = await listRepoDirs("content/posts")
+  const files = await Promise.all(
+    slugs.map(async (slug) => {
+      const paths = postPaths(slug)
+      const [es, en] = await Promise.all([readRepoFile(paths.es), readRepoFile(paths.en)])
+      return { slug, es, en }
+    }),
+  )
+  const byLang: PostsByLang = { en: [], es: [] }
+  for (const lang of ["en", "es"] as const) {
+    for (const f of files) {
+      const raw = f[lang] ?? f[otherLang(lang)]
+      const rawLang: Lang = f[lang] ? lang : otherLang(lang)
+      if (!raw) continue
+      byLang[lang].push(parsePostMarkdown(f.slug, rawLang, raw).meta)
+    }
+    byLang[lang].sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : a.slug.localeCompare(b.slug)))
+  }
+  return byLang
 }

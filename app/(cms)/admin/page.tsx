@@ -2,10 +2,10 @@ import Link from "next/link"
 import { Plus } from "lucide-react"
 import { Chip, MonoLabel } from "@/components/site/primitives"
 import { Button } from "@/components/ui/button"
-import { getAllPostsByLang } from "@/lib/posts"
+import { listPostsForAdmin, usesGithub } from "@/lib/cms-store"
 
 export default async function AdminPostsPage() {
-  const byLang = await getAllPostsByLang({ includeDrafts: true })
+  const byLang = await listPostsForAdmin()
   const enBySlug = new Map(byLang.en.map((p) => [p.slug, p]))
   return (
     <section className="flex flex-col gap-6">
@@ -13,6 +13,9 @@ export default async function AdminPostsPage() {
         <div>
           <MonoLabel className="text-muted-2">Posts</MonoLabel>
           <h1 className="mt-2 font-display text-4xl font-medium tracking-[-0.03em]">{byLang.es.length} posts</h1>
+          <p className="mt-1 font-mono text-xs text-muted-2">
+            {usesGithub() ? "Source: GitHub — a saved post shows here right away and goes live after the deploy." : "Source: local files"}
+          </p>
         </div>
         <Button asChild variant="green" size="pill">
           <Link href="/admin/new"><Plus />New post</Link>
