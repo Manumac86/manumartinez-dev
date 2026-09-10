@@ -31,7 +31,7 @@ export async function renderMarkdown(markdown: string): Promise<string> {
 /** Extracts h2/h3 headings from rendered HTML for a table of contents. */
 export function extractHeadings(html: string): Heading[] {
   const out: Heading[] = []
-  const re = /<h([23]) id="([^"]+)">(.*?)<\/h\1>/gs
+  const re = /<h([23]) id="([^"]+)">([\s\S]*?)<\/h\1>/g
   let m: RegExpExecArray | null
   while ((m = re.exec(html))) {
     out.push({ level: Number(m[1]) as 2 | 3, id: m[2], text: m[3].replace(/<[^>]+>/g, "") })

@@ -5,8 +5,10 @@ import { ProjectsList } from "@/components/home/projects-list"
 import { ExperiencePreview } from "@/components/home/experience-preview"
 import { BlogPreview } from "@/components/home/blog-preview"
 import { TalkSection } from "@/components/home/talk-section"
+import { getAllPostsByLang } from "@/lib/posts"
 
-export default function HomePage() {
+export default async function HomePage() {
+  const posts = await getAllPostsByLang()
   return (
     <>
       <PageBackdrop glow="home" />
@@ -15,7 +17,7 @@ export default function HomePage() {
         <Bento />
         <ProjectsList />
         <ExperiencePreview />
-        <BlogPreview />
+        <BlogPreview posts={posts} />
         <TalkSection />
       </main>
     </>

@@ -4,7 +4,8 @@ import Link from "next/link"
 import { Calendar, Globe, Mail, Rocket } from "lucide-react"
 import { GithubIcon, GitlabIcon, LinkedinIcon, XIcon } from "@/components/icons/brand"
 import { useLang } from "@/components/site/lang-provider"
-import { links, posts, projects } from "@/content"
+import { links, projects } from "@/content"
+import type { PostsByLang } from "@/lib/posts"
 
 const socials = [
   { href: links.site, label: "manumartinez.dev", Icon: Globe },
@@ -19,7 +20,7 @@ const socials = [
 
 const colLink = "text-sm text-fg-footer transition-colors hover:text-foreground"
 
-export function SiteFooter() {
+export function SiteFooter({ latestPosts }: { latestPosts: PostsByLang }) {
   const { lang, t } = useLang()
   const year = new Date().getFullYear()
   return (
@@ -62,9 +63,9 @@ export function SiteFooter() {
               <li>
                 <Link href="/blog" className={colLink}>{t.allPosts}</Link>
               </li>
-              {posts.slice(0, 3).map((p) => (
+              {latestPosts[lang].slice(0, 3).map((p) => (
                 <li key={p.slug}>
-                  <Link href={`/blog#${p.slug}`} className={colLink}>{p.title[lang]}</Link>
+                  <Link href={`/blog/${p.slug}`} className={colLink}>{p.title}</Link>
                 </li>
               ))}
             </FooterCol>

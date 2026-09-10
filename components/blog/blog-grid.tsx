@@ -1,19 +1,21 @@
 "use client"
 
 import * as React from "react"
+import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { useLang } from "@/components/site/lang-provider"
 import { MonoLabel } from "@/components/site/primitives"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
-import { posts } from "@/content"
+import type { PostsByLang } from "@/lib/posts"
 import { cn } from "@/lib/utils"
 
 const ALL = "__all__"
 
-export function BlogGrid({ featuredFirst = true }: { featuredFirst?: boolean }) {
+export function BlogGrid({ posts: byLang, featuredFirst = true }: { posts: PostsByLang; featuredFirst?: boolean }) {
   const { lang, t } = useLang()
+  const posts = byLang[lang]
   const [tag, setTag] = React.useState(ALL)
-  const tags = React.useMemo(() => [ALL, ...Array.from(new Set(posts.map((p) => p.tag)))], [])
+  const tags = React.useMemo(() => [ALL, ...Array.from(new Set(posts.map((p) => p.tag)))], [posts])
   const list = tag === ALL ? posts : posts.filter((p) => p.tag === tag)
 
   return (
@@ -72,7 +74,7 @@ export function BlogGrid({ featuredFirst = true }: { featuredFirst?: boolean }) 
                 <div className="flex justify-between font-mono text-xs text-muted-2">
                   <span className="text-violet">{p.tag}</span>
                   <span>
-                    {p.date} · {p.min} {t.minRead}
+                    {p.date} · {p.readingTime} {t.minRead}
                   </span>
                 </div>
                 <h2
@@ -81,13 +83,13 @@ export function BlogGrid({ featuredFirst = true }: { featuredFirst?: boolean }) 
                     "font-display leading-[1.02] font-medium tracking-[-0.035em] text-balance",
                   )}
                 >
-                  {p.title[lang]}
+                  <Link href={`/blog/${p.slug}`}>{p.title}</Link>
                 </h2>
-                <p className="max-w-[600px] text-[15px] text-fg-2 text-pretty">{p.excerpt[lang]}</p>
-                <a href={`#${p.slug}`} className="mt-auto inline-flex items-center gap-1.5 text-sm text-green">
+                <p className="max-w-[600px] text-[15px] text-fg-2 text-pretty">{p.excerpt}</p>
+                <Link href={`/blog/${p.slug}`} className="mt-auto inline-flex items-center gap-1.5 text-sm text-green">
                   {t.readMore}
                   <ArrowRight className="size-3.5" />
-                </a>
+                </Link>
               </div>
             </article>
           )

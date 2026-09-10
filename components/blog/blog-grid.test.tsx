@@ -3,12 +3,14 @@ import userEvent from "@testing-library/user-event"
 import { describe, expect, it } from "vitest"
 import { LangProvider } from "@/components/site/lang-provider"
 import { BlogGrid } from "@/components/blog/blog-grid"
+import { getAllPostsByLang } from "@/lib/posts"
 
 describe("BlogGrid", () => {
   it("shows all posts with the first featured, then filters by tag and drops the featured treatment", async () => {
+    const posts = await getAllPostsByLang()
     render(
       <LangProvider initialLang="en">
-        <BlogGrid />
+        <BlogGrid posts={posts} />
       </LangProvider>,
     )
     expect(screen.getAllByRole("article")).toHaveLength(4)

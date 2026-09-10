@@ -3,7 +3,7 @@ import { describe, expect, it, vi } from "vitest"
 import { LangProvider } from "@/components/site/lang-provider"
 import { SiteHeader } from "@/components/site/site-header"
 
-vi.mock("next/navigation", () => ({ usePathname: () => "/blog" }))
+vi.mock("next/navigation", () => ({ usePathname: () => "/blog", useRouter: () => ({ refresh: vi.fn() }) }))
 
 describe("SiteHeader", () => {
   it("marks the current route active and shows the other language", () => {

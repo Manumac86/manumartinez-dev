@@ -12,15 +12,6 @@ export interface Project {
   desc: Localized
 }
 
-export interface Post {
-  slug: string
-  date: string
-  min: number
-  tag: string
-  title: Localized
-  excerpt: Localized
-}
-
 export interface ExperienceShort {
   company: string
   role: string
