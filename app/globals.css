@@ -175,7 +175,7 @@
   mask-image: linear-gradient(to bottom, black, transparent);
 }
 @utility mask-fade-b-60 {
-  mask-image: linear-gradient(to bottom, black 0%, oklch(0 0 0 / 0.15) 60%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 0%, oklch(0 0 0 / 0.06) 60%, transparent 100%);
 }
 @utility photo-overlay {
   background: linear-gradient(180deg, oklch(0.10 0.025 290 / 0) 30%, oklch(0.10 0.025 290 / 0.55) 65%, oklch(0.10 0.025 290 / 0.95) 100%);
