@@ -147,6 +147,11 @@ export async function getPost(slug: string, lang: Lang, options: LoadOptions = {
   return { meta: found.meta, html, headings: extractHeadings(html), fallback }
 }
 
+/** Drafts are visible outside production and on Vercel preview deployments. */
+export function shouldIncludeDrafts(env: NodeJS.ProcessEnv = process.env): boolean {
+  return env.NODE_ENV !== "production" || env.VERCEL_ENV === "preview"
+}
+
 export function otherLang(lang: Lang): Lang {
   return lang === "en" ? "es" : "en"
 }
