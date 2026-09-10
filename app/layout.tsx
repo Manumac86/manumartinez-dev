@@ -17,13 +17,6 @@ export const metadata: Metadata = {
   },
   description:
     "CEO & Co-Founder @ Collybrix. 15+ years shipping software — now acting as temporary technical co-founder for startups going from idea to 100K users.",
-  icons: {
-    icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/icon-dark-32x32.png" },
-    ],
-    apple: "/apple-icon.png",
-  },
 }
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
