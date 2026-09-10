@@ -76,7 +76,7 @@ export function SiteFooter() {
             </FooterCol>
           </div>
         </div>
-        <div aria-hidden className="mt-2 mask-fade-b-30">
+        <div aria-hidden className="pointer-events-none mt-2 -mb-14 mask-fade-b-60">
           <svg viewBox="0 0 1000 118" width="100%" preserveAspectRatio="none" className="block overflow-visible">
             <text
               x="0"
@@ -95,7 +95,7 @@ export function SiteFooter() {
             </text>
           </svg>
         </div>
-        <div className="flex flex-wrap justify-between gap-3 border-t border-border-soft pt-6 font-mono text-xs text-muted-2">
+        <div className="relative flex flex-wrap justify-between gap-3 border-t border-border-soft pt-6 font-mono text-xs text-muted-2">
           <span>© {year} Emmanuel Martinez. {t.rights}</span>
           <span>{t.footer}</span>
         </div>
