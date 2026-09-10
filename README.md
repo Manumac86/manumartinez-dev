@@ -21,7 +21,7 @@ bun run test       # vitest
 | Variable | Purpose |
 |---|---|
 | `RESEND_API_KEY` | Resend API key. Without it, contact/newsletter forms log to the console in development and fail gracefully in production. |
-| `RESEND_AUDIENCE_ID` | Resend audience that stores newsletter subscribers. |
+| `RESEND_SEGMENT_ID` | Resend segment (formerly audience) that stores newsletter subscribers. |
 | `CONTACT_TO` | Inbox for contact-form messages (default `me@manumartinez.dev`). |
 | `CONTACT_FROM` | Sender used by Resend. Defaults to `hello@` + `RESEND_EMAIL_DOMAIN` (provisioned by the Marketplace; the domain must be verified in Resend). |
 | `REACTBITS_LICENSE_KEY` | React Bits Pro registry access for `bun x shadcn@latest add @reactbits-pro/...`. |
