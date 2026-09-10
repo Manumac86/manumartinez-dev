@@ -67,7 +67,7 @@ async function readPostFile(dir: string, slug: string, lang: Lang): Promise<{ me
   const file = path.join(dir, slug, `${lang}.md`)
   let raw: string
   try {
-    raw = await readFile(file, "utf8")
+    raw = await readFile(/* turbopackIgnore: true */ file, "utf8")
   } catch {
     return null
   }
@@ -101,14 +101,14 @@ export async function getPostSlugs(options: LoadOptions = {}): Promise<string[]>
   const dir = options.dir ?? DEFAULT_POSTS_DIR
   let entries: string[]
   try {
-    entries = await readdir(dir)
+    entries = await readdir(/* turbopackIgnore: true */ dir)
   } catch {
     return []
   }
   const slugs: string[] = []
   for (const entry of entries) {
     if (entry.startsWith(".")) continue
-    const s = await stat(path.join(dir, entry))
+    const s = await stat(path.join(/* turbopackIgnore: true */ dir, entry))
     if (s.isDirectory()) slugs.push(entry)
   }
   return slugs.sort()

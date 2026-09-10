@@ -14,7 +14,7 @@ export interface PostSource {
 
 async function readLocal(slug: string, lang: Lang): Promise<string | null> {
   try {
-    return await readFile(path.join(DEFAULT_POSTS_DIR, slug, `${lang}.md`), "utf8")
+    return await readFile(/* turbopackIgnore: true */ path.join(DEFAULT_POSTS_DIR, slug, `${lang}.md`), "utf8")
   } catch {
     return null
   }
