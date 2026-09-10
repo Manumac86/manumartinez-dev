@@ -76,7 +76,7 @@ export function SiteFooter() {
             </FooterCol>
           </div>
         </div>
-        <div aria-hidden className="pointer-events-none mt-2 -mb-24 mask-fade-b-60">
+        <div aria-hidden className="pointer-events-none mt-2 -mb-18 mask-fade-b-60">
           <svg viewBox="0 0 1000 118" width="100%" preserveAspectRatio="none" className="block overflow-visible">
             <text
               x="0"
