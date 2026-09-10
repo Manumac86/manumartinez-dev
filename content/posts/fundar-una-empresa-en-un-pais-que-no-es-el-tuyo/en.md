@@ -5,7 +5,6 @@ tag: Emprender
 date: '2026-09-10'
 template: article
 source: es
-draft: true
 cover: >-
   https://wdklltflqjemwpic.public.blob.vercel-storage.com/blog/fundar-una-empresa-en-un-pais-que-no-es-el-tuyo/cover-1789053217213.png
 translatedFrom: es
