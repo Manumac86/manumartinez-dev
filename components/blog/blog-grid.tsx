@@ -71,7 +71,7 @@ export function BlogGrid({ posts: byLang, featuredFirst = true }: { posts: Posts
                 )}
               >
                 {p.cover ? (
-                  <Image src={p.cover} alt="" fill sizes={big ? "(min-width: 768px) 50vw, 100vw" : "(min-width: 1024px) 33vw, 100vw"} className="object-cover" />
+                  <Image src={p.cover} alt="" fill priority={big} sizes={big ? "(min-width: 768px) 50vw, 100vw" : "(min-width: 1024px) 33vw, 100vw"} className="object-cover" />
                 ) : (
                   <>cover · {p.slug}</>
                 )}
