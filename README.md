@@ -24,7 +24,6 @@ bun run email      # React Email preview of emails/ on :3333
 | `RESEND_API_KEY` | Resend API key. Without it, contact/newsletter forms log to the console in development and fail gracefully in production. |
 | `RESEND_SEGMENT_ID` | Resend segment (formerly audience) that stores newsletter subscribers. |
 | `NEWSLETTER_SECRET` | Optional HMAC secret for unsubscribe links (defaults to `RESEND_API_KEY`). |
-| `FEATURE_PROJECTS`, `FEATURE_BLOG` | `on` shows the section (page, home block, nav and footer links). Anything else hides it with 404s. Off in Production until the content is reviewed; on in Preview/Development. |
 | `FLAGS_SECRET` | Signs Vercel Toolbar flag overrides, so hidden sections can be previewed per browser in production. |
 | `CONTACT_TO` | Inbox for contact-form messages (default `me@manumartinez.dev`). |
 | `CONTACT_FROM` | Sender used by Resend. Defaults to `hello@` + `RESEND_EMAIL_DOMAIN` (provisioned by the Marketplace; the domain must be verified in Resend). |
@@ -38,7 +37,7 @@ bun run email      # React Email preview of emails/ on :3333
 
 ## Feature flags
 
-Sections are gated with the Vercel Flags SDK (`flags.ts`). Toggle them with the `FEATURE_*` env vars (redeploy to apply) or per browser from the Vercel Toolbar. `/admin` is never gated.
+The `projects` and `blog` sections are gated with Vercel Flags (`flags.ts`, `@flags-sdk/vercel`). Toggle them per environment in the Vercel dashboard (Flags tab) or with `vercel flags enable|disable <flag> -e <env>` — changes apply without a redeploy. Override per browser from the Vercel Toolbar. Authentication uses the Vercel OIDC token (`vercel env pull` locally). `/admin` is never gated.
 
 ## Content
 
