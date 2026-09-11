@@ -1,4 +1,6 @@
 import type { Metadata } from "next"
+import { notFound } from "next/navigation"
+import { blogFlag } from "@/flags"
 import { PageBackdrop } from "@/components/site/page-backdrop"
 import { BlogGrid } from "@/components/blog/blog-grid"
 import { NewsletterBand } from "@/components/blog/newsletter-band"
@@ -10,6 +12,7 @@ export const metadata: Metadata = {
 }
 
 export default async function BlogPage() {
+  if (!(await blogFlag())) notFound()
   const posts = await getAllPostsByLang()
   return (
     <>

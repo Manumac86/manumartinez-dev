@@ -3,6 +3,7 @@ import { cookies } from "next/headers"
 import { notFound } from "next/navigation"
 import { PageBackdrop } from "@/components/site/page-backdrop"
 import { postTemplates } from "@/components/blog/templates"
+import { blogFlag } from "@/flags"
 import { LANG_COOKIE, parseLang } from "@/lib/lang"
 import { getPost, getPostSlugs, shouldIncludeDrafts } from "@/lib/posts"
 
@@ -13,6 +14,7 @@ export async function generateStaticParams() {
 }
 
 async function loadPost(slug: string) {
+  if (!(await blogFlag())) return { lang: "en" as const, post: null }
   const lang = parseLang((await cookies()).get(LANG_COOKIE)?.value)
   const post = await getPost(slug, lang, { includeDrafts: shouldIncludeDrafts() })
   return { lang, post }

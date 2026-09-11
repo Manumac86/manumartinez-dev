@@ -6,6 +6,7 @@ import { GithubIcon, GitlabIcon, LinkedinIcon, XIcon } from "@/components/icons/
 import { useLang } from "@/components/site/lang-provider"
 import { links, projects } from "@/content"
 import type { PostsByLang } from "@/lib/posts"
+import type { SiteFlags } from "@/flags"
 
 const socials = [
   { href: links.site, label: "manumartinez.dev", Icon: Globe },
@@ -20,7 +21,7 @@ const socials = [
 
 const colLink = "text-sm text-fg-footer transition-colors hover:text-foreground"
 
-export function SiteFooter({ latestPosts }: { latestPosts: PostsByLang }) {
+export function SiteFooter({ latestPosts, flags }: { latestPosts: PostsByLang; flags: SiteFlags }) {
   const { lang, t } = useLang()
   const year = new Date().getFullYear()
   return (
@@ -49,6 +50,7 @@ export function SiteFooter({ latestPosts }: { latestPosts: PostsByLang }) {
             </div>
           </div>
           <div className="grid min-w-0 grid-cols-3 gap-6">
+            {flags.projects && (
             <FooterCol title={t.nav.work}>
               <li>
                 <Link href="/projects" className={colLink}>{t.allProjects}</Link>
@@ -59,6 +61,8 @@ export function SiteFooter({ latestPosts }: { latestPosts: PostsByLang }) {
                 </li>
               ))}
             </FooterCol>
+            )}
+            {flags.blog && (
             <FooterCol title={t.nav.blog}>
               <li>
                 <Link href="/blog" className={colLink}>{t.allPosts}</Link>
@@ -69,10 +73,11 @@ export function SiteFooter({ latestPosts }: { latestPosts: PostsByLang }) {
                 </li>
               ))}
             </FooterCol>
+            )}
             <FooterCol title={t.about}>
               <li><Link href="/experience" className={colLink}>{t.nav.exp}</Link></li>
-              <li><Link href="/projects" className={colLink}>{t.nav.work}</Link></li>
-              <li><Link href="/blog" className={colLink}>{t.nav.blog}</Link></li>
+              {flags.projects && <li><Link href="/projects" className={colLink}>{t.nav.work}</Link></li>}
+              {flags.blog && <li><Link href="/blog" className={colLink}>{t.nav.blog}</Link></li>}
               <li><Link href="/me" className={colLink}>{t.nav.me}</Link></li>
             </FooterCol>
           </div>

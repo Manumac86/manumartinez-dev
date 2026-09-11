@@ -9,7 +9,7 @@ describe("SiteFooter", () => {
     const latestPosts = await getAllPostsByLang()
     render(
       <LangProvider initialLang="en">
-        <SiteFooter latestPosts={latestPosts} />
+        <SiteFooter latestPosts={latestPosts} flags={{ projects: true, blog: true }} />
       </LangProvider>,
     )
     expect(screen.getByLabelText("LinkedIn")).toHaveAttribute("href", expect.stringContaining("linkedin.com"))
@@ -20,5 +20,17 @@ describe("SiteFooter", () => {
       "/blog/multi-agent-production",
     )
     expect(screen.getByText(/Madrid, Spain/)).toBeInTheDocument()
+  })
+
+  it("drops the Projects and Blog columns when the flags are off", async () => {
+    const latestPosts = await getAllPostsByLang()
+    render(
+      <LangProvider initialLang="en">
+        <SiteFooter latestPosts={latestPosts} flags={{ projects: false, blog: false }} />
+      </LangProvider>,
+    )
+    expect(screen.queryByRole("heading", { name: "Projects" })).toBeNull()
+    expect(screen.queryByRole("link", { name: "Fintio" })).toBeNull()
+    expect(screen.getByRole("link", { name: "Experience" })).toBeInTheDocument()
   })
 })

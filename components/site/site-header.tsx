@@ -12,13 +12,14 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { useLang } from "@/components/site/lang-provider"
 import { cn } from "@/lib/utils"
+import type { SiteFlags } from "@/flags"
 
-export function SiteHeader() {
+export function SiteHeader({ flags }: { flags: SiteFlags }) {
   const { lang, t, toggle } = useLang()
   const pathname = usePathname()
   const nav = [
-    { href: "/projects", label: t.nav.work },
-    { href: "/blog", label: t.nav.blog },
+    ...(flags.projects ? [{ href: "/projects", label: t.nav.work }] : []),
+    ...(flags.blog ? [{ href: "/blog", label: t.nav.blog }] : []),
     { href: "/experience", label: t.nav.exp },
   ]
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`)

@@ -1,4 +1,6 @@
 import type { Metadata } from "next"
+import { notFound } from "next/navigation"
+import { projectsFlag } from "@/flags"
 import { PageBackdrop } from "@/components/site/page-backdrop"
 import { PageHeader } from "@/components/site/page-header"
 import { ProjectsGrid } from "@/components/projects/projects-grid"
@@ -9,7 +11,8 @@ export const metadata: Metadata = {
   description: "Products built at Collybrix and beyond — each one a real bet on a real problem.",
 }
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  if (!(await projectsFlag())) notFound()
   return (
     <>
       <PageBackdrop glow="blue" />

@@ -7,7 +7,7 @@ import { useLang } from "@/components/site/lang-provider"
 import { RisingWords } from "@/components/home/rising-words"
 import { links } from "@/content"
 
-export function Hero() {
+export function Hero({ projectsEnabled = true }: { projectsEnabled?: boolean }) {
   const { lang, t } = useLang()
   return (
     <section className="container-site flex flex-col items-center gap-7 pt-[clamp(80px,14vh,160px)] pb-12 text-center">
@@ -27,7 +27,7 @@ export function Hero() {
           </a>
         </Button>
         <Button asChild variant="heroOutline" size="cta">
-          <Link href="/projects">{t.ctaSecondary}</Link>
+          {projectsEnabled ? <Link href="/projects">{t.ctaSecondary}</Link> : <Link href="/experience">{t.ctaSecondaryAlt}</Link>}
         </Button>
       </div>
     </section>

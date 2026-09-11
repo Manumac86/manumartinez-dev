@@ -8,6 +8,7 @@ const en = {
     "CEO & Co-Founder @ Collybrix. 15+ years shipping software — from frontend to VP of Engineering — now acting as temporary technical co-founder for startups going from idea to 100K users.",
   ctaPrimary: "Book a 30-min call",
   ctaSecondary: "See projects",
+  ctaSecondaryAlt: "See experience",
   collyLabel: "What is Collybrix",
   collyTitle: "We fast-track startup tech — and rewrite the standards.",
   collyBody:
@@ -83,6 +84,7 @@ const es: Copy = {
     "CEO & Co-Founder @ Collybrix. Más de 15 años haciendo software — de frontend a VP de Ingeniería — hoy como co-founder técnico temporal para startups que van de la idea a 100K usuarios.",
   ctaPrimary: "Agendar 30 min",
   ctaSecondary: "Ver proyectos",
+  ctaSecondaryAlt: "Ver experiencia",
   collyLabel: "Qué es Collybrix",
   collyTitle: "Aceleramos la tecnología de startups — y reescribimos el estándar.",
   collyBody:
