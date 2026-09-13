@@ -1,5 +1,7 @@
 "use client"
 
+import Image from "next/image"
+import { ArrowUpRight } from "lucide-react"
 import { useLang } from "@/components/site/lang-provider"
 import { Chip } from "@/components/site/primitives"
 import { projects } from "@/content"
@@ -38,22 +40,36 @@ export function ProjectsGrid({ featuredFirst = true }: { featuredFirst?: boolean
               <p className="max-w-[560px] text-[15px] text-fg-2 text-pretty">{p.desc[lang]}</p>
               <div className="mt-auto grid grid-cols-[auto_1fr] gap-x-5 gap-y-2 border-t border-border pt-4 text-sm">
                 <span className="pt-[3px] font-mono text-xs text-muted-2">{t.role}</span>
-                <span>{p.role}</span>
+                <span>{p.role[lang]}</span>
                 <span className="pt-[3px] font-mono text-xs text-muted-2">{t.stack}</span>
                 <div className="flex flex-wrap gap-1.5">
                   {p.stack.map((s) => (
                     <Chip key={s} variant="mono">{s}</Chip>
                   ))}
                 </div>
+                {p.url && (
+                  <>
+                    <span className="pt-[3px] font-mono text-xs text-muted-2">{t.web}</span>
+                    <a href={p.url} target="_blank" rel="noopener noreferrer" className="inline-flex w-fit items-center gap-1 text-green hover:underline">
+                      {p.url.replace(/^https?:\/\//, "")}
+                      <ArrowUpRight className="size-3.5" />
+                    </a>
+                  </>
+                )}
               </div>
             </div>
             <div
               className={cn(
-                "flex items-center justify-center rounded-lg border border-border bg-stripes font-mono text-xs text-muted-2",
+                "relative flex items-center justify-center overflow-hidden rounded-lg border border-border font-mono text-xs text-muted-2",
+                p.cover ? "bg-card-2" : "bg-stripes",
                 big ? "min-h-[320px]" : "min-h-[180px]",
               )}
             >
-              {p.name} · product screenshot
+              {p.cover ? (
+                <Image src={p.cover} alt={`${p.name} screenshot`} fill sizes={big ? "(min-width: 768px) 40vw, 100vw" : "(min-width: 1024px) 33vw, 100vw"} className="object-cover object-top" priority={big} />
+              ) : (
+                <>{p.name} · product screenshot</>
+              )}
             </div>
           </article>
         )

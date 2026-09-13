@@ -6,10 +6,14 @@ export interface Project {
   slug: string
   name: string
   year: string
-  role: string
+  role: Localized
   stack: string[]
   tag: Localized
   desc: Localized
+  /** Public URL, shown as an outbound link when present. */
+  url?: string
+  /** Screenshot under public/, e.g. /projects/fintio.jpg. */
+  cover?: string
 }
 
 export interface ExperienceShort {

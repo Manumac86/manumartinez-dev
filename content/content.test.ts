@@ -14,6 +14,7 @@ describe("content", () => {
       expect(p.tag.en).toBeTruthy()
       expect(p.tag.es).toBeTruthy()
       expect(p.desc.es).toBeTruthy()
+      expect(p.role.es).toBeTruthy()
     }
   })
 
