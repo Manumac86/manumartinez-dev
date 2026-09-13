@@ -1,18 +1,21 @@
 "use client"
 
 import Image from "next/image"
-import { ArrowUpRight } from "lucide-react"
+import Link from "next/link"
+import { ArrowRight, ArrowUpRight } from "lucide-react"
 import { useLang } from "@/components/site/lang-provider"
 import { Chip } from "@/components/site/primitives"
-import { projects } from "@/content"
+import { projectHref, type ProjectsByLang } from "@/lib/project-links"
 import { cn } from "@/lib/utils"
 
-export function ProjectsGrid({ featuredFirst = true }: { featuredFirst?: boolean }) {
+export function ProjectsGrid({ projects: byLang, featuredFirst = true }: { projects: ProjectsByLang; featuredFirst?: boolean }) {
   const { lang, t } = useLang()
+  const projects = byLang[lang]
   return (
     <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-3">
       {projects.map((p, i) => {
         const big = featuredFirst && i === 0
+        const href = projectHref(p)
         return (
           <article
             key={p.slug}
@@ -28,19 +31,20 @@ export function ProjectsGrid({ featuredFirst = true }: { featuredFirst?: boolean
                 <span>0{i + 1}</span>
                 <span>{p.year}</span>
               </div>
-              <h2
-                className={cn(
-                  big ? "text-[clamp(40px,5vw,72px)]" : "text-4xl",
-                  "font-display leading-[0.98] font-medium tracking-[-0.04em]",
-                )}
-              >
-                {p.name}
+              <h2 className={cn(big ? "text-[clamp(40px,5vw,72px)]" : "text-4xl", "font-display leading-[0.98] font-medium tracking-[-0.04em]")}>
+                {p.hasPage ? <Link href={href} className="hover:text-green">{p.name}</Link> : p.name}
               </h2>
-              <p className="text-sm text-violet">{p.tag[lang]}</p>
-              <p className="max-w-[560px] text-[15px] text-fg-2 text-pretty">{p.desc[lang]}</p>
+              <p className="text-sm text-violet">{p.tag}</p>
+              <p className="line-clamp-4 max-w-[560px] text-[15px] text-fg-2 text-pretty">{p.excerpt}</p>
+              {p.hasPage && (
+                <Link href={href} className="-mt-1.5 inline-flex w-fit items-center gap-1 text-sm text-green hover:underline">
+                  {t.seeMore}
+                  <ArrowRight className="size-3.5" />
+                </Link>
+              )}
               <div className="mt-auto grid grid-cols-[auto_1fr] gap-x-5 gap-y-2 border-t border-border pt-4 text-sm">
                 <span className="pt-[3px] font-mono text-xs text-muted-2">{t.role}</span>
-                <span>{p.role[lang]}</span>
+                <span>{p.role}</span>
                 <span className="pt-[3px] font-mono text-xs text-muted-2">{t.stack}</span>
                 <div className="flex flex-wrap gap-1.5">
                   {p.stack.map((s) => (

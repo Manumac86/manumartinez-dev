@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { LangProvider } from "@/components/site/lang-provider"
 import { LANG_COOKIE, parseLang } from "@/lib/lang"
 import { getAllPostsByLang } from "@/lib/posts"
+import { getAllProjectsByLang } from "@/lib/projects"
 import { getSiteFlags } from "@/flags"
 import { SiteHeader } from "@/components/site/site-header"
 import { SiteFooter } from "@/components/site/site-footer"
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const lang = parseLang((await cookies()).get(LANG_COOKIE)?.value)
-  const [latestPosts, flags] = await Promise.all([getAllPostsByLang(), getSiteFlags()])
+  const [latestPosts, projects, flags] = await Promise.all([getAllPostsByLang(), getAllProjectsByLang(), getSiteFlags()])
   return (
     <html lang={lang} className={fontClassNames}>
       <body>
@@ -30,7 +31,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
           <div className="relative flex min-h-screen flex-col overflow-x-clip">
             <SiteHeader flags={flags} />
             {children}
-            <SiteFooter latestPosts={latestPosts} flags={flags} />
+            <SiteFooter latestPosts={latestPosts} projects={projects} flags={flags} />
           </div>
         </LangProvider>
         <Analytics />

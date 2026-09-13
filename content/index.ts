@@ -2,7 +2,6 @@ import type { Lang, Localized } from "./types"
 
 export * from "./types"
 export { copy, type Copy } from "./copy"
-export { projects } from "./projects"
 export { experienceShort, experienceFull } from "./experience"
 export { education, certifications, languages } from "./education"
 export { stack } from "./stack"

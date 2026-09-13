@@ -2,12 +2,14 @@ import { render, screen } from "@testing-library/react"
 import { describe, expect, it } from "vitest"
 import { LangProvider } from "@/components/site/lang-provider"
 import { ProjectsGrid } from "@/components/projects/projects-grid"
+import { getAllProjectsByLang } from "@/lib/projects"
 
 describe("ProjectsGrid", () => {
-  it("renders 4 anchored articles, first one featured", () => {
+  it("renders 4 anchored articles, first one featured", async () => {
+    const projects = await getAllProjectsByLang()
     render(
       <LangProvider initialLang="en">
-        <ProjectsGrid />
+        <ProjectsGrid projects={projects} />
       </LangProvider>,
     )
     const articles = screen.getAllByRole("article")
@@ -17,5 +19,8 @@ describe("ProjectsGrid", () => {
     expect(articles[1]).not.toHaveAttribute("data-featured")
     expect(screen.getByRole("link", { name: /fintio\.app/ })).toHaveAttribute("href", "https://fintio.app")
     expect(screen.getByRole("img", { name: "Fintio screenshot" })).toBeInTheDocument()
+    expect(screen.getByRole("link", { name: "Fintio" })).toHaveAttribute("href", "/projects/fintio")
+    expect(screen.queryByRole("link", { name: "FCP Contest App" })).toBeNull()
+    expect(screen.getByRole("link", { name: "Milano" })).toHaveAttribute("href", "/projects/milano")
   })
 })

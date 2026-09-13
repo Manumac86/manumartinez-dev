@@ -5,14 +5,16 @@ import { ProjectsList } from "@/components/home/projects-list"
 import { ExperiencePreview } from "@/components/home/experience-preview"
 import { BlogPreview } from "@/components/home/blog-preview"
 import { getAllPostsByLang } from "@/lib/posts"
+import { getAllProjectsByLang } from "@/lib/projects"
 
 const wrap = (ui: React.ReactNode) => render(<LangProvider initialLang="es">{ui}</LangProvider>)
 
 describe("home sections", () => {
-  it("lists 4 projects with zero-padded index linking to anchors", () => {
-    wrap(<ProjectsList />)
+  it("lists 4 projects with zero-padded index linking to page or anchor", async () => {
+    wrap(<ProjectsList projects={await getAllProjectsByLang()} />)
     expect(screen.getAllByRole("link", { name: /0[1-4]/ })).toHaveLength(4)
-    expect(screen.getByRole("link", { name: /Fintio/ })).toHaveAttribute("href", "/projects#fintio")
+    expect(screen.getByRole("link", { name: /Fintio/ })).toHaveAttribute("href", "/projects/fintio")
+    expect(screen.getByRole("link", { name: /FCP Contest App/ })).toHaveAttribute("href", "/projects#fcp")
   })
 
   it("shows 7 roles, current one labelled Ahora, plus 3 schools", () => {

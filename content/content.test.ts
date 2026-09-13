@@ -1,21 +1,10 @@
 import { describe, expect, it } from "vitest"
-import { bio, certifications, copy, education, experienceFull, experienceShort, pick, projects, stack } from "@/content"
+import { bio, certifications, copy, education, experienceFull, experienceShort, pick, stack } from "@/content"
 
 describe("content", () => {
   it("copy has identical keys in en and es", () => {
     expect(Object.keys(copy.es).sort()).toEqual(Object.keys(copy.en).sort())
     expect(Object.keys(copy.es.nav).sort()).toEqual(Object.keys(copy.en.nav).sort())
-  })
-
-  it("projects have unique slugs and both languages", () => {
-    const slugs = projects.map((p) => p.slug)
-    expect(new Set(slugs).size).toBe(slugs.length)
-    for (const p of projects) {
-      expect(p.tag.en).toBeTruthy()
-      expect(p.tag.es).toBeTruthy()
-      expect(p.desc.es).toBeTruthy()
-      expect(p.role.es).toBeTruthy()
-    }
   })
 
   it("has 18 full roles, 10 short roles, 3 schools, 15 certifications, 12 stack items, 5 bio paragraphs", () => {

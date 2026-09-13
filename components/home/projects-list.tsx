@@ -4,10 +4,11 @@ import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { useLang } from "@/components/site/lang-provider"
 import { ArrowLink, SectionTitle } from "@/components/site/primitives"
-import { projects } from "@/content"
+import { projectHref, type ProjectsByLang } from "@/lib/project-links"
 
-export function ProjectsList() {
+export function ProjectsList({ projects: byLang }: { projects: ProjectsByLang }) {
   const { lang, t } = useLang()
+  const projects = byLang[lang]
   return (
     <section id="work" className="container-site pt-32">
       <div className="mb-2 flex flex-wrap items-end justify-between gap-4">
@@ -18,15 +19,15 @@ export function ProjectsList() {
         {projects.map((p, i) => (
           <Link
             key={p.slug}
-            href={`/projects#${p.slug}`}
+            href={projectHref(p)}
             className="grid items-center gap-6 rounded-xl border-t border-border px-4 py-7 transition-colors duration-200 hover:bg-card sm:grid-cols-[60px_minmax(0,2fr)_minmax(0,3fr)_auto]"
           >
             <span className="font-mono text-[13px] text-muted-2">0{i + 1}</span>
             <div className="min-w-0">
               <div className="font-display text-[30px] leading-none font-medium tracking-[-0.03em]">{p.name}</div>
-              <div className="mt-1.5 text-[13px] text-violet">{p.tag[lang]}</div>
+              <div className="mt-1.5 text-[13px] text-violet">{p.tag}</div>
             </div>
-            <p className="text-[15px] text-muted-foreground text-pretty">{p.desc[lang]}</p>
+            <p className="text-[15px] text-muted-foreground text-pretty">{p.excerpt}</p>
             <ArrowUpRight className="size-[22px] text-green" strokeWidth={1.5} />
           </Link>
         ))}

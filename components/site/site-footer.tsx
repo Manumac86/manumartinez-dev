@@ -4,8 +4,9 @@ import Link from "next/link"
 import { Calendar, Globe, Mail, Rocket } from "lucide-react"
 import { GithubIcon, GitlabIcon, LinkedinIcon, XIcon } from "@/components/icons/brand"
 import { useLang } from "@/components/site/lang-provider"
-import { links, projects } from "@/content"
+import { links } from "@/content"
 import type { PostsByLang } from "@/lib/posts"
+import { projectHref, type ProjectsByLang } from "@/lib/project-links"
 import type { SiteFlags } from "@/flags"
 
 const socials = [
@@ -21,7 +22,7 @@ const socials = [
 
 const colLink = "text-sm text-fg-footer transition-colors hover:text-foreground"
 
-export function SiteFooter({ latestPosts, flags }: { latestPosts: PostsByLang; flags: SiteFlags }) {
+export function SiteFooter({ latestPosts, projects, flags }: { latestPosts: PostsByLang; projects: ProjectsByLang; flags: SiteFlags }) {
   const { lang, t } = useLang()
   const year = new Date().getFullYear()
   return (
@@ -55,9 +56,9 @@ export function SiteFooter({ latestPosts, flags }: { latestPosts: PostsByLang; f
               <li>
                 <Link href="/projects" className={colLink}>{t.allProjects}</Link>
               </li>
-              {projects.slice(0, 3).map((p) => (
+              {projects[lang].slice(0, 3).map((p) => (
                 <li key={p.slug}>
-                  <Link href={`/projects#${p.slug}`} className={colLink}>{p.name}</Link>
+                  <Link href={projectHref(p)} className={colLink}>{p.name}</Link>
                 </li>
               ))}
             </FooterCol>

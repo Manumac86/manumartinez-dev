@@ -2,18 +2,25 @@ export type Lang = "en" | "es"
 export const LANGS: readonly Lang[] = ["en", "es"]
 export type Localized<T = string> = Record<Lang, T>
 
-export interface Project {
+export interface ProjectMeta {
   slug: string
+  lang: Lang
   name: string
+  tag: string
+  excerpt: string
   year: string
-  role: Localized
+  role: string
+  status?: string
   stack: string[]
-  tag: Localized
-  desc: Localized
-  /** Public URL, shown as an outbound link when present. */
   url?: string
-  /** Screenshot under public/, e.g. /projects/fintio.jpg. */
   cover?: string
+  gallery: string[]
+  order: number
+  draft: boolean
+  source: Lang
+  translatedFrom?: Lang
+  /** True when the markdown body has content, i.e. /projects/<slug> exists. */
+  hasPage: boolean
 }
 
 export interface ExperienceShort {

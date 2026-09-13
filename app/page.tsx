@@ -6,17 +6,18 @@ import { ExperiencePreview } from "@/components/home/experience-preview"
 import { BlogPreview } from "@/components/home/blog-preview"
 import { TalkSection } from "@/components/home/talk-section"
 import { getAllPostsByLang } from "@/lib/posts"
+import { getAllProjectsByLang } from "@/lib/projects"
 import { getSiteFlags } from "@/flags"
 
 export default async function HomePage() {
-  const [posts, flags] = await Promise.all([getAllPostsByLang(), getSiteFlags()])
+  const [posts, projects, flags] = await Promise.all([getAllPostsByLang(), getAllProjectsByLang(), getSiteFlags()])
   return (
     <>
       <PageBackdrop glow="home" />
       <main id="top" className="relative">
         <Hero projectsEnabled={flags.projects} />
         <Bento />
-        {flags.projects && <ProjectsList />}
+        {flags.projects && <ProjectsList projects={projects} />}
         <ExperiencePreview />
         {flags.blog && <BlogPreview posts={posts} />}
         <TalkSection />
