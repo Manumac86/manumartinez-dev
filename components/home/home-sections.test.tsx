@@ -11,8 +11,9 @@ const wrap = (ui: React.ReactNode) => render(<LangProvider initialLang="es">{ui}
 
 describe("home sections", () => {
   it("lists published projects with zero-padded index linking to page or anchor", async () => {
-    wrap(<ProjectsList projects={await getAllProjectsByLang()} />)
-    expect(screen.getAllByRole("link", { name: /0[1-4]/ })).toHaveLength(3)
+    const projects = await getAllProjectsByLang()
+    wrap(<ProjectsList projects={projects} />)
+    expect(screen.getAllByRole("link", { name: /0[1-9]/ })).toHaveLength(projects.es.length)
     expect(screen.getByRole("link", { name: /Fintio/ })).toHaveAttribute("href", "/projects/fintio")
     expect(screen.getByRole("link", { name: /Parrot/ })).toHaveAttribute("href", "/projects/parrot")
   })

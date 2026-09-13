@@ -13,7 +13,7 @@ describe("ProjectsGrid", () => {
       </LangProvider>,
     )
     const articles = screen.getAllByRole("article")
-    expect(articles).toHaveLength(3)
+    expect(articles).toHaveLength(projects.en.length)
     expect(articles[0]).toHaveAttribute("id", "milano")
     expect(articles[0]).toHaveAttribute("data-featured", "true")
     expect(articles[1]).not.toHaveAttribute("data-featured")
