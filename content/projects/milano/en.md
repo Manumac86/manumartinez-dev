@@ -12,6 +12,14 @@ stack:
   - Clerk
   - MCP · AI Gateway
 url: https://milano.collybrix.com
+cover: /projects/milano.jpg
+gallery:
+  - /projects/milano-board.jpg
+  - /projects/milano-metrics.jpg
+  - /projects/milano-crm.jpg
+  - /projects/milano-roadmap.jpg
+  - /projects/milano-invoicing.jpg
+  - /projects/milano-cto.jpg
 order: 1
 source: es
 translatedFrom: es

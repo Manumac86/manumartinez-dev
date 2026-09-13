@@ -14,7 +14,7 @@ describe("home sections", () => {
     wrap(<ProjectsList projects={await getAllProjectsByLang()} />)
     expect(screen.getAllByRole("link", { name: /0[1-4]/ })).toHaveLength(3)
     expect(screen.getByRole("link", { name: /Fintio/ })).toHaveAttribute("href", "/projects/fintio")
-    expect(screen.getByRole("link", { name: /Parrot/ })).toHaveAttribute("href", "/projects#parrot")
+    expect(screen.getByRole("link", { name: /Parrot/ })).toHaveAttribute("href", "/projects/parrot")
   })
 
   it("shows 7 roles, current one labelled Ahora, plus 3 schools", () => {
