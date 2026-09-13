@@ -9,6 +9,7 @@ stack:
   - Node.js CMS
   - Media
 order: 4
+draft: true
 source: es
 translatedFrom: es
 ---
