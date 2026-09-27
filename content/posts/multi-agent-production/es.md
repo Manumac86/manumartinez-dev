@@ -1,10 +1,13 @@
 ---
-title: "Sistemas multi-agente en producción: qué se rompe de verdad"
-excerpt: "Después de lanzar AKAIO v1.0 — Gen AI, agentes y búsqueda semántica — los fallos nunca fueron el modelo. Fueron estado, coste y confianza."
+title: 'Sistemas multi-agente en producción: qué se rompe de verdad'
+excerpt: >-
+  Después de lanzar AKAIO v1.0 — Gen AI, agentes y búsqueda semántica — los
+  fallos nunca fueron el modelo. Fueron estado, coste y confianza.
 tag: AI Engineering
-date: 2026-08-21
+date: '2026-08-21'
 template: article
 source: es
+draft: true
 ---
 
 ## El modelo casi nunca es el problema
